@@ -1,0 +1,14 @@
+{
+  "name": "tumbleweed_deployer",
+  "version": "1.0.0",
+  "description": "sends tumbleweed emojis to a channel if no one has said anything in a while",
+  "main": "index.mjs",
+  "keywords": [
+    "slack"
+  ],
+  "author": "jeegnathebug",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/web-api": "^6.8.1"
+  }
+}
