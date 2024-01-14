@@ -34,7 +34,7 @@ export const handler = async () => {
     console.info('Received trigger event');
 
     if (!TOKEN) {
-        console.log('No slack token defined');
+        console.log('No slack token defined!');
         return;
     }
 
@@ -45,12 +45,13 @@ export const handler = async () => {
 
     let sendMessage = true;
     history.forEach(message => {
-        console.info(`Message in history sent by "${message.user}". Ignoring?: ${ignoredUserIds.includes(message.user)}`);
-        sendMessage &= ignoredUserIds.includes(message.user);
+        const shouldIgnore = ignoredUserIds.includes(message.user);
+        console.info(`Message in history sent by "${message.user}". Ignoring?: ${shouldIgnore}`);
+        sendMessage &= shouldIgnore;
     });
 
     if (sendMessage) {
         console.info('Deploying tumbleweed');
-        // await publishMessage(TUMBLEWEED_CHANNEL_ID, ':tumbleweed: :tumbleweed: :tumbleweed:');
+        await publishMessage(TUMBLEWEED_CHANNEL_ID, ':tumbleweed: :tumbleweed: :tumbleweed:');
     }
 };
