@@ -8,7 +8,9 @@ AWS Lambda handler to send a tumbleweed message to a given channel, if after a c
 
 2. A custom emoji set in the slack workspace called `tumbleweed`.
 
-3. Requires the following environment variables to be set in the lambda's enviroment:
+3. A scheduled event (cron) trigger applied to the lambda.
+
+4. Requires the following environment variables to be set in the lambda's enviroment:
 ```
 SLACK_TOKEN: <slack token>
 TUMBLEWEED_CHANNEL_ID: <slack channel id in which to send tumbleweed emojis. This is the same channel to check for sent messages>
